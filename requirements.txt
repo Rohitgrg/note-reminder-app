@@ -1,0 +1,9 @@
+flask
+python-dotenv
+psycopg2-binary
+flask-restful
+flask-sqlalchemy
+flask-migrate
+flask-mail
+celery
+redis
