@@ -28,5 +28,6 @@ class ReminderService:
         one_hour_from_now = current_time + timedelta(hours=1)
         if target_datetime < one_hour_from_now:
             task = send_email_task.apply_async(args=(email, note_id, new_reminder_id), eta=target_datetime)
+            print("Task Scheduled!")
         return reminder
 
