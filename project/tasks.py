@@ -18,7 +18,7 @@ def send_email_task(email, note_id, reminder_id):
     try:
         print('Sending email', email, note_id)
         note = note_service.get_note_by_id(note_id)
-        if not note.active:
+        if note.active:
             subject = "Note reminder for " + note.heading
             email_body = "Your Note says: " + note.body
             email_service.send_email(email, subject, email_body)
