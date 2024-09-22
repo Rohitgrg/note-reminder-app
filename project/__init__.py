@@ -23,7 +23,7 @@ def create_app():
     app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
 
     #celery
-    app.config["CELERY_CONFIG"] = {"broker_url": "redis://localhost", "result_backend": "redis://localhost","beat_schedule":{
+    app.config["CELERY_CONFIG"] = {"broker_url": os.getenv('REDIS_URL'), "result_backend": os.getenv('REDIS_URL'),"beat_schedule":{
         "every-ten-seconds":{
             "task" : "project.tasks.check_reminders_task",
             "schedule": crontab(minute="0"),
