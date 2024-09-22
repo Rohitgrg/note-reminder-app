@@ -54,8 +54,6 @@ def create_app():
     api.add_resource(reminder_api, '/reminders')
     app.register_blueprint(email_routes)
 
-    print('dateTime now' + datetime.now().strftime("%Y-%m-%dT%H:%M:%S"))
-
     @app.errorhandler(400)
     def bad_request(error):
         return jsonify({"message": error.description}), 400
