@@ -7,6 +7,7 @@ from flask import Flask, jsonify
 from flask_migrate import Migrate
 from flask_restful import Api
 from flask_mail import Mail
+from flask_cors import CORS
 
 from project.utils import make_celery
 from project.db import db
@@ -20,6 +21,7 @@ mail = Mail()
 
 def create_app():
     app = Flask(__name__)
+    CORS(app)
     app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
 
     #celery
