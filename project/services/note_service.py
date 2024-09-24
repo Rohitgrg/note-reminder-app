@@ -30,6 +30,7 @@ class NoteService:
              abort(404, message="Note not found")
         note.heading = heading
         note.body = body
+        note.updated_at = datetime.now()
         self.repository.update(note)
         return note
 

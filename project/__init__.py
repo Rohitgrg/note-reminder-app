@@ -26,7 +26,7 @@ def create_app():
 
     #celery
     app.config["CELERY_CONFIG"] = {"broker_url": os.getenv('REDIS_URL'), "result_backend": os.getenv('REDIS_URL'),"beat_schedule":{
-        "every-ten-seconds":{
+        "every-one-hour":{
             "task" : "project.tasks.check_reminders_task",
             "schedule": crontab(minute="0"),
         }
